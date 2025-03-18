@@ -1,0 +1,161 @@
+---
+title: 服务条款
+description: 华飞数智互联网科技服务条款与用户协议，明确双方权利与义务，保障用户合法权益
+skipSync: true
+---
+
+import { useRouter } from 'next/router'
+import { BlogCardList, Heading, Newsletter, TagList, Description, Button } from '@/components'
+import { HeroSection } from '@/hero-section'
+import { allBlogs } from '../lib/all-blogs'
+import { asArray } from '../lib/as-array'
+import { extractRelevantTags } from '../lib/tags'
+
+export default function Rules() {
+  const { query } = useRouter()
+  const tagsFilter = !query.tag ? [] : asArray(query.tag)
+  const allTags = extractRelevantTags(allBlogs)
+  let articles = allBlogs.filter(article => 
+    article.tags && asArray(article.tags).includes('rules')
+  )
+  
+  if (tagsFilter.length > 0) {
+    articles = articles.filter(
+      article =>
+        tagsFilter.length === 0 || asArray(article.tags).some(tag => tagsFilter.includes(tag))
+    )
+  }
+  
+  return (
+    <>
+      <HeroSection>
+        <Heading>服务条款</Heading>
+        <Description className="mt-6">
+          华飞数智互联网科技服务条款与用户协议，明确双方权利与义务，保障用户合法权益
+        </Description>
+        <div className="mt-8 flex flex-wrap justify-center gap-4">
+          <Button variant="primary" href="#terms">服务条款</Button>
+          <Button variant="secondary" href="#privacy">隐私政策</Button>
+        </div>
+      </HeroSection>
+      
+      <div className="nextra-container">
+        <div className="my-20">
+          <Heading id="terms" as="h2">服务条款</Heading>
+          
+          <div className="mt-10 space-y-8">
+            <div className="rounded-lg border border-gray-200 p-6 shadow-sm">
+              <h3 className="mb-3 text-xl font-bold">1. 服务协议的接受与修改</h3>
+              <p className="mb-3">欢迎使用华飞数智互联网科技（以下简称"华飞"或"我们"）提供的产品和服务。请您（以下简称"用户"）仔细阅读本服务条款。</p>
+              <p className="mb-3">1.1 通过访问或使用我们的网站、应用程序或服务，您确认您已阅读、理解并同意受本服务条款的约束。如果您不同意本服务条款的任何部分，请勿使用我们的服务。</p>
+              <p>1.2 华飞保留随时修改本服务条款的权利。修改后的条款将在网站上公布，并自公布之日起生效。继续使用我们的服务将视为您接受修改后的条款。</p>
+            </div>
+            
+            <div className="rounded-lg border border-gray-200 p-6 shadow-sm">
+              <h3 className="mb-3 text-xl font-bold">2. 服务内容</h3>
+              <p className="mb-3">2.1 华飞提供的服务包括但不限于AI智能聊天机器人、AI虚拟数字人等产品及相关技术支持服务。</p>
+              <p className="mb-3">2.2 华飞有权在必要时变更、中断或终止部分或全部服务。华飞保留根据实际情况随时调整服务的权利，且无需事先通知用户。</p>
+              <p>2.3 用户理解，华飞仅提供与服务相关的技术支持，对于用户自行上传、发布或传输的内容，华飞不承担任何责任。</p>
+            </div>
+            
+            <div className="rounded-lg border border-gray-200 p-6 shadow-sm">
+              <h3 className="mb-3 text-xl font-bold">3. 用户账户</h3>
+              <p className="mb-3">3.1 用户在使用华飞服务前可能需要注册账户。用户应提供真实、准确、完整的个人资料，并在资料变更时及时更新。</p>
+              <p className="mb-3">3.2 用户应妥善保管账户信息和密码，对账户下的所有活动负全部责任。如发现任何未经授权使用账户的情况，应立即通知华飞。</p>
+              <p>3.3 华飞保留在用户违反服务条款的情况下，暂停或终止用户账户的权利。</p>
+            </div>
+            
+            <div className="rounded-lg border border-gray-200 p-6 shadow-sm">
+              <h3 className="mb-3 text-xl font-bold">4. 用户行为规范</h3>
+              <p className="mb-3">4.1 用户在使用华飞服务时应遵守中华人民共和国法律法规、尊重社会公德，不得利用华飞服务从事违法违规行为。</p>
+              <p className="mb-3">4.2 用户不得利用华飞服务制作、上传、发布、传播含有以下内容的信息：</p>
+              <ul className="ml-5 list-disc">
+                <li>反对宪法确定的基本原则的</li>
+                <li>危害国家安全、泄露国家秘密的</li>
+                <li>损害国家荣誉和利益的</li>
+                <li>煽动民族仇恨、民族歧视、破坏民族团结的</li>
+                <li>破坏国家宗教政策、宣扬邪教和封建迷信的</li>
+                <li>散布谣言、扰乱社会秩序、破坏社会稳定的</li>
+                <li>散布淫秽、色情、赌博、暴力、恐怖或者教唆犯罪的</li>
+                <li>侮辱或者诽谤他人，侵害他人合法权益的</li>
+                <li>含有法律、行政法规禁止的其他内容的</li>
+              </ul>
+              <p>4.3 用户不得从事任何可能对华飞服务的正常运行造成不利影响的行为。</p>
+            </div>
+            
+            <div className="rounded-lg border border-gray-200 p-6 shadow-sm">
+              <h3 className="mb-3 text-xl font-bold">5. 知识产权</h3>
+              <p className="mb-3">5.1 华飞提供的服务及其所包含的所有内容（包括但不限于文本、图形、标志、按钮图标、图像、音频剪辑、数据编译、软件和代码）的知识产权归华飞或其许可方所有。</p>
+              <p className="mb-3">5.2 未经华飞事先书面许可，用户不得以任何方式使用、复制、修改、传播或发布华飞服务中的任何内容。</p>
+              <p>5.3 用户通过华飞服务上传、发布的内容，用户保证对该等内容拥有合法权利。用户授予华飞全球性、免费、非独家、可转授权的许可，允许华飞使用、复制、修改、改编、出版、翻译、创建衍生作品、传播、表演和展示此等内容。</p>
+            </div>
+            
+            <div className="rounded-lg border border-gray-200 p-6 shadow-sm">
+              <h3 className="mb-3 text-xl font-bold">6. 免责声明</h3>
+              <p className="mb-3">6.1 华飞不保证服务一定能满足用户的要求，也不保证服务不会中断，对服务的及时性、安全性、准确性也不作保证。</p>
+              <p className="mb-3">6.2 对于因不可抗力或华飞不能控制的原因造成的服务中断或其它缺陷，华飞不承担任何责任。</p>
+              <p>6.3 华飞不对用户使用服务过程中产生的任何直接、间接、偶然、特殊及后续的损害承担责任。</p>
+            </div>
+          </div>
+        </div>
+        
+        <div className="my-20">
+          <Heading id="privacy" as="h2">隐私政策</Heading>
+          
+          <div className="mt-10 space-y-8">
+            <div className="rounded-lg border border-gray-200 p-6 shadow-sm">
+              <h3 className="mb-3 text-xl font-bold">1. 信息收集</h3>
+              <p className="mb-3">1.1 我们可能收集的个人信息包括但不限于：姓名、联系方式、电子邮件地址、公司信息等。</p>
+              <p className="mb-3">1.2 我们还可能收集您使用服务时的相关信息，包括但不限于：设备信息、日志信息、位置信息、使用习惯等。</p>
+              <p>1.3 我们承诺只收集为提供服务所必需的信息，并采取一切合理措施保护您的个人信息安全。</p>
+            </div>
+            
+            <div className="rounded-lg border border-gray-200 p-6 shadow-sm">
+              <h3 className="mb-3 text-xl font-bold">2. 信息使用</h3>
+              <p className="mb-3">2.1 我们使用收集的信息来提供、维护、保护和改进我们的服务，开发新的服务，并保护华飞和用户的权益。</p>
+              <p className="mb-3">2.2 我们可能使用您的个人信息向您发送产品更新、活动通知或营销信息。您可以随时选择退订此类信息。</p>
+              <p>2.3 我们不会向任何第三方出售您的个人信息。只有在以下情况下，我们才会共享您的个人信息：获得您的明确同意；法律要求；保护华飞权益所必需。</p>
+            </div>
+            
+            <div className="rounded-lg border border-gray-200 p-6 shadow-sm">
+              <h3 className="mb-3 text-xl font-bold">3. 信息安全</h3>
+              <p className="mb-3">3.1 我们实施各种安全措施来保护您的个人信息，防止数据遭到未经授权的访问、披露、使用、修改或破坏。</p>
+              <p className="mb-3">3.2 尽管我们采取了合理的安全措施，但请注意，互联网环境并非百分之百安全，我们无法保证您的个人信息绝对安全。</p>
+              <p>3.3 您应当妥善保管账户信息，避免将个人信息透露给他人。</p>
+            </div>
+            
+            <div className="rounded-lg border border-gray-200 p-6 shadow-sm">
+              <h3 className="mb-3 text-xl font-bold">4. Cookie和类似技术</h3>
+              <p className="mb-3">4.1 我们可能使用Cookie和类似技术收集和存储您的信息，以提供更个性化的用户体验和服务。</p>
+              <p className="mb-3">4.2 您可以通过浏览器设置拒绝Cookie，但这可能会影响您使用我们服务的某些功能。</p>
+              <p>4.3 我们不会将Cookie用于本隐私政策所述目的之外的任何用途。</p>
+            </div>
+            
+            <div className="rounded-lg border border-gray-200 p-6 shadow-sm">
+              <h3 className="mb-3 text-xl font-bold">5. 未成年人保护</h3>
+              <p className="mb-3">5.1 我们非常重视对未成年人个人信息的保护。如果您是未满18周岁的未成年人，请在法定监护人的陪同下阅读本隐私政策，并在法定监护人的同意下使用我们的服务。</p>
+              <p>5.2 如果我们发现自己在未获监护人同意的情况下收集了未成年人的个人信息，我们会尽快删除相关数据。</p>
+            </div>
+          </div>
+        </div>
+        
+        <div className="my-20 rounded-lg bg-blue-50 p-8">
+          <Heading as="h2">联系我们</Heading>
+          <Description className="mt-4">
+            如果您对我们的服务条款或隐私政策有任何疑问，或者需要行使您的权利，请通过以下方式联系我们。
+          </Description>
+          <div className="mt-8 flex justify-center">
+            <Button variant="primary" href="/service">联系我们</Button>
+          </div>
+        </div>
+        
+        {articles.length > 0 && (
+          <div className="my-20">
+            <Heading as="h2">相关资讯</Heading>
+            <BlogCardList articles={articles} />
+          </div>
+        )}
+      </div>
+    </>
+  )
+}

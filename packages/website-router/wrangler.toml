@@ -1,0 +1,10 @@
+main = "./src/index.ts"
+name = "guild-website-routing"
+compatibility_date = "2022-07-26"
+
+routes = [
+	{ pattern = "jiujuaner.com", custom_domain = true },
+]
+
+[placement]
+mode = "smart"

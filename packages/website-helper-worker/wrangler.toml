@@ -1,0 +1,8 @@
+main = "./src/index.ts"
+name = "website-helper-worker"
+node_compat = true
+compatibility_date = "2022-07-26"
+
+routes = [{ pattern = "utils.jiujuaner.com", custom_domain = true }]
+
+send_email = [{ name = "EMAIL_SENDER" }]

@@ -1,0 +1,217 @@
+---
+title: AI虚拟数字人
+description: 华飞数智互联网科技提供的新一代AI虚拟数字人解决方案，为企业和个人打造逼真、智能的数字化形象
+skipSync: true
+---
+
+import { useRouter } from 'next/router'
+import { BlogCardList, Heading, Newsletter, TagList, Description, Button } from '@/components'
+import { HeroSection } from '@/hero-section'
+import { allBlogs } from '../lib/all-blogs'
+import { asArray } from '../lib/as-array'
+import { extractRelevantTags } from '../lib/tags'
+
+export default function DigitalHuman() {
+  const { query } = useRouter()
+  const tagsFilter = !query.tag ? [] : asArray(query.tag)
+  const allTags = extractRelevantTags(allBlogs)
+  let articles = allBlogs.filter(article => 
+    article.tags && asArray(article.tags).includes('digitalhuman')
+  )
+  
+  if (tagsFilter.length > 0) {
+    articles = articles.filter(
+      article =>
+        tagsFilter.length === 0 || asArray(article.tags).some(tag => tagsFilter.includes(tag))
+    )
+  }
+  
+  return (
+    <>
+      <HeroSection>
+        <Heading>AI虚拟数字人</Heading>
+        <Description className="mt-6">
+          华飞数智互联网科技提供新一代AI虚拟数字人解决方案，结合计算机视觉、语音合成和大语言模型技术，为企业和个人打造逼真、智能的数字化形象
+        </Description>
+        <div className="mt-8 flex flex-wrap justify-center gap-4">
+          <Button variant="primary" href="#scenarios">应用场景</Button>
+          <Button variant="secondary" href="#cases">成功案例</Button>
+        </div>
+      </HeroSection>
+      
+      <div className="nextra-container">
+        <div className="my-20">
+          <Heading id="scenarios" as="h2">应用场景</Heading>
+          
+          <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div className="rounded-lg border border-gray-200 p-6 shadow-sm">
+              <h3 className="mb-3 text-xl font-bold">品牌代言</h3>
+              <p>为企业打造专属数字代言人，展示品牌形象，进行产品宣传和营销活动，提供24/7不间断的品牌展示，大幅降低代言成本。</p>
+            </div>
+            
+            <div className="rounded-lg border border-gray-200 p-6 shadow-sm">
+              <h3 className="mb-3 text-xl font-bold">虚拟主播</h3>
+              <p>担任新闻播报、直播带货、活动主持等角色，提供专业、稳定的内容输出，不受时间和地点限制，可同时在多个平台进行直播。</p>
+            </div>
+            
+            <div className="rounded-lg border border-gray-200 p-6 shadow-sm">
+              <h3 className="mb-3 text-xl font-bold">智能客服</h3>
+              <p>结合AI聊天机器人技术，提供拟人化的客户服务体验，通过面部表情和肢体语言增强沟通效果，提升用户满意度和品牌亲和力。</p>
+            </div>
+            
+            <div className="rounded-lg border border-gray-200 p-6 shadow-sm">
+              <h3 className="mb-3 text-xl font-bold">教育培训</h3>
+              <p>担任虚拟讲师或助教，提供个性化教学内容，通过生动的表达方式提高学习趣味性，适用于语言学习、职业培训等多种教育场景。</p>
+            </div>
+            
+            <div className="rounded-lg border border-gray-200 p-6 shadow-sm">
+              <h3 className="mb-3 text-xl font-bold">元宇宙形象</h3>
+              <p>为用户创建个性化的元宇宙数字分身，用于社交互动、虚拟会议、游戏娱乐等场景，打造沉浸式的虚拟世界体验。</p>
+            </div>
+            
+            <div className="rounded-lg border border-gray-200 p-6 shadow-sm">
+              <h3 className="mb-3 text-xl font-bold">文化传承</h3>
+              <p>复原历史人物或文化名人，通过数字人技术让历史"活"起来，用于博物馆展览、文化教育、旅游景点等场所，提供沉浸式文化体验。</p>
+            </div>
+          </div>
+        </div>
+        
+        <div className="my-20">
+          <Heading id="cases" as="h2">成功案例</Heading>
+          
+          <div className="mt-10 space-y-12">
+            <div className="rounded-lg border border-gray-200 p-8 shadow-sm">
+              <h3 className="mb-4 text-2xl font-bold">某知名零售品牌</h3>
+              <p className="mb-4">该零售品牌采用华飞AI虚拟数字人作为品牌代言人，进行全渠道营销活动。</p>
+              <div className="mb-4">
+                <strong>挑战：</strong>
+                <ul className="ml-5 list-disc">
+                  <li>传统代言人成本高昂且存在风险</li>
+                  <li>需要在多个平台同时展开营销活动</li>
+                  <li>品牌形象需要保持一致性和持续更新</li>
+                </ul>
+              </div>
+              <div className="mb-4">
+                <strong>解决方案：</strong>
+                <ul className="ml-5 list-disc">
+                  <li>定制化品牌专属数字人形象设计</li>
+                  <li>多场景内容生成系统</li>
+                  <li>跨平台部署和实时互动功能</li>
+                </ul>
+              </div>
+              <div>
+                <strong>成果：</strong>
+                <ul className="ml-5 list-disc">
+                  <li>营销成本降低70%</li>
+                  <li>社交媒体互动率提升85%</li>
+                  <li>品牌认知度提高32%</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div className="rounded-lg border border-gray-200 p-8 shadow-sm">
+              <h3 className="mb-4 text-2xl font-bold">某在线教育平台</h3>
+              <p className="mb-4">该教育平台引入华飞AI虚拟数字人作为语言学习课程的虚拟讲师。</p>
+              <div className="mb-4">
+                <strong>挑战：</strong>
+                <ul className="ml-5 list-disc">
+                  <li>需要提供24小时不间断的语言学习服务</li>
+                  <li>学生需要沉浸式的语言环境和互动体验</li>
+                  <li>教学内容需要根据学生水平进行个性化调整</li>
+                </ul>
+              </div>
+              <div className="mb-4">
+                <strong>解决方案：</strong>
+                <ul className="ml-5 list-disc">
+                  <li>多语言、多口音的数字人讲师</li>
+                  <li>实时表情和肢体语言反馈系统</li>
+                  <li>基于学习进度的自适应课程内容</li>
+                </ul>
+              </div>
+              <div>
+                <strong>成果：</strong>
+                <ul className="ml-5 list-disc">
+                  <li>学生学习时长增加45%</li>
+                  <li>语言掌握速度提升38%</li>
+                  <li>课程完成率提高50%</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div className="rounded-lg border border-gray-200 p-8 shadow-sm">
+              <h3 className="mb-4 text-2xl font-bold">某文化旅游景区</h3>
+              <p className="mb-4">该景区采用华飞AI虚拟数字人技术，复原历史人物，打造沉浸式文化体验。</p>
+              <div className="mb-4">
+                <strong>挑战：</strong>
+                <ul className="ml-5 list-disc">
+                  <li>传统展示方式难以吸引年轻游客</li>
+                  <li>需要生动展现历史文化知识</li>
+                  <li>游客互动体验不足</li>
+                </ul>
+              </div>
+              <div className="mb-4">
+                <strong>解决方案：</strong>
+                <ul className="ml-5 list-disc">
+                  <li>基于历史资料的高精度数字人重建</li>
+                  <li>多点位互动式历史故事讲解</li>
+                  <li>AR/VR结合的沉浸式体验</li>
+                </ul>
+              </div>
+              <div>
+                <strong>成果：</strong>
+                <ul className="ml-5 list-disc">
+                  <li>游客停留时间延长60%</li>
+                  <li>年轻游客比例提升55%</li>
+                  <li>游客满意度评分提高4.2分至4.8分（满分5分）</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div className="my-20">
+          <Heading as="h2">技术优势</Heading>
+          
+          <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2">
+            <div className="rounded-lg border border-gray-200 p-6 shadow-sm">
+              <h3 className="mb-3 text-xl font-bold">超写实渲染</h3>
+              <p>采用先进的3D建模和渲染技术，结合精细的皮肤材质模拟和光照系统，打造超写实的人物形象，细节精准到毛孔和皱纹。</p>
+            </div>
+            
+            <div className="rounded-lg border border-gray-200 p-6 shadow-sm">
+              <h3 className="mb-3 text-xl font-bold">自然语音合成</h3>
+              <p>基于深度学习的语音合成技术，实现自然流畅的语音表达，支持情感变化、语调调整和多语言切换，音质媲美真人配音。</p>
+            </div>
+            
+            <div className="rounded-lg border border-gray-200 p-6 shadow-sm">
+              <h3 className="mb-3 text-xl font-bold">智能表情系统</h3>
+              <p>通过面部动作捕捉和表情库训练，实现丰富自然的面部表情，能够根据语境自动生成合适的微表情，增强交流的真实感。</p>
+            </div>
+            
+            <div className="rounded-lg border border-gray-200 p-6 shadow-sm">
+              <h3 className="mb-3 text-xl font-bold">实时互动能力</h3>
+              <p>结合大语言模型技术，实现数字人的实时对话和互动能力，可以理解复杂问题，给出连贯、有逻辑的回应，创造自然的交流体验。</p>
+            </div>
+          </div>
+        </div>
+        
+        <div className="my-20 rounded-lg bg-blue-50 p-8">
+          <Heading as="h2">开始使用华飞AI虚拟数字人</Heading>
+          <Description className="mt-4">
+            无论您是需要品牌代言、虚拟主播、智能客服，还是教育培训数字人，华飞AI虚拟数字人都能为您提供定制化解决方案。
+          </Description>
+          <div className="mt-8 flex justify-center">
+            <Button variant="primary" href="/service">联系我们</Button>
+          </div>
+        </div>
+        
+        {articles.length > 0 && (
+          <div className="my-20">
+            <Heading as="h2">相关资讯</Heading>
+            <BlogCardList articles={articles} />
+          </div>
+        )}
+      </div>
+    </>
+  )
+}

@@ -1,0 +1,39 @@
+---
+title: 华飞科技
+description:
+  AI数字智能产业领导者，提供智能数据分析、决策支持系统和企业数字化转型解决方案。
+thumbnail: https://open-graph-image.theguild.workers.dev/?product=GUILD&title=GraphQL%20Tools
+---
+
+import { ClientLogosSection } from '@/client-logos-section'
+import { Newsletter } from '@/components'
+import { Ecosystem } from '@/ecosystem'
+import { GetInTouchSection } from '@/get-in-touch-section'
+import { Hero } from '@/hero'
+import { RecommendedReadingSection } from '@/recommended-reading-section'
+import { ServicesSection } from '@/services-section'
+import { allBlogs } from '../lib/all-blogs'
+
+export default function IndexPage() {
+  return (
+    <>
+      {/* 
+        We're missing H1,
+        but we cannot display it as it's ugly and does not fit.
+        So we're using an invisible H1 for SEO purposes.
+      */}
+      <h1 className="invisible">华飞科技</h1>
+      <Hero />
+      <ClientLogosSection /> 
+      {/* <Ecosystem /> */}
+      {/* <ServicesSection /> */}
+      <div className="nextra-container">
+        <GetInTouchSection />
+      </div>
+      {/* <RecommendedReadingSection articles={allBlogs.slice(0, 4)} /> */}
+      <div className="nextra-container">
+        <Newsletter />
+      </div>
+    </>
+  )
+}

@@ -1,0 +1,193 @@
+---
+title: 产品生态
+description: 华飞数智互联网科技产品生态
+skipSync: true
+---
+
+import { useRouter } from 'next/router'
+import { BlogCardList, Heading, Newsletter, TagList } from '@/components'
+import { HeroSection } from '@/hero-section'
+import { allBlogs } from '../lib/all-blogs'
+import { asArray } from '../lib/as-array'
+import { extractRelevantTags } from '../lib/tags'
+
+export default function Products() {
+  const { query } = useRouter()
+  const tagsFilter = !query.tag ? [] : asArray(query.tag)
+  const allTags = extractRelevantTags(allBlogs)
+  let articles = allBlogs
+  if (tagsFilter.length > 0) {
+    articles = articles.filter(
+      article =>
+        tagsFilter.length === 0 || asArray(article.tags).some(tag => tagsFilter.includes(tag))
+    )
+  }
+  return (
+    <>
+      <HeroSection>
+        <Heading>华飞数智互联网科技产品生态</Heading>
+        <p className="text-xl text-gray-600 dark:text-gray-400 mt-4 max-w-3xl mx-auto">
+          引领AI数字智能产业，为企业和用户提供全方位的智能解决方案
+        </p>
+      </HeroSection>
+
+      <div className="nextra-container py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+          {/* 智能对话机器人产品 */}
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transition-all hover:shadow-xl">
+            <div className="h-64 bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-32 w-32 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+              </svg>
+            </div>
+            <div className="p-8">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">华飞智能对话机器人</h2>
+              <p className="text-gray-600 dark:text-gray-300 mb-6">
+                基于大语言模型技术打造的新一代智能对话系统，为企业提供7×24小时不间断的智能客服支持。
+              </p>
+              <div className="space-y-3">
+                <div className="flex items-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <p className="text-gray-700 dark:text-gray-300">多轮对话理解，精准把握用户意图</p>
+                </div>
+                <div className="flex items-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <p className="text-gray-700 dark:text-gray-300">知识库深度集成，提供专业领域解答</p>
+                </div>
+                <div className="flex items-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <p className="text-gray-700 dark:text-gray-300">情感分析技术，提供个性化服务体验</p>
+                </div>
+                <div className="flex items-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <p className="text-gray-700 dark:text-gray-300">多渠道部署，支持网站、APP、微信等平台</p>
+                </div>
+              </div>
+              <div className="mt-8">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">应用场景</h3>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 rounded-full text-sm">客户服务</span>
+                  <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-100 rounded-full text-sm">销售咨询</span>
+                  <span className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-100 rounded-full text-sm">技术支持</span>
+                  <span className="px-3 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-100 rounded-full text-sm">内部知识管理</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* AI数字人产品 */}
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transition-all hover:shadow-xl">
+            <div className="h-64 bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-32 w-32 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+            </div>
+            <div className="p-8">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">华飞AI数字人</h2>
+              <p className="text-gray-600 dark:text-gray-300 mb-6">
+                融合计算机视觉、语音合成与自然语言处理技术，打造拟人化虚拟形象，为品牌提供全新的数字化互动体验。
+              </p>
+              <div className="space-y-3">
+                <div className="flex items-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <p className="text-gray-700 dark:text-gray-300">高度拟真的视觉形象与表情系统</p>
+                </div>
+                <div className="flex items-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <p className="text-gray-700 dark:text-gray-300">自然流畅的语音交互与唇形同步</p>
+                </div>
+                <div className="flex items-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <p className="text-gray-700 dark:text-gray-300">实时响应的肢体动作与手势表达</p>
+                </div>
+                <div className="flex items-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <p className="text-gray-700 dark:text-gray-300">定制化形象设计，彰显品牌个性</p>
+                </div>
+              </div>
+              <div className="mt-8">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">应用场景</h3>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-100 rounded-full text-sm">品牌代言</span>
+                  <span className="px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-100 rounded-full text-sm">直播带货</span>
+                  <span className="px-3 py-1 bg-teal-100 dark:bg-teal-900 text-teal-800 dark:text-teal-100 rounded-full text-sm">虚拟主播</span>
+                  <span className="px-3 py-1 bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-100 rounded-full text-sm">数字迎宾</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-gray-50 dark:bg-gray-900 rounded-2xl p-8 md:p-12 mb-20">
+          <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-8">为什么选择华飞科技</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="bg-blue-100 dark:bg-blue-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-blue-600 dark:text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">技术领先</h3>
+              <p className="text-gray-600 dark:text-gray-400">
+                自主研发核心算法，拥有多项AI技术专利，持续创新迭代产品能力
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="bg-purple-100 dark:bg-purple-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-purple-600 dark:text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">专业团队</h3>
+              <p className="text-gray-600 dark:text-gray-400">
+                汇聚AI领域顶尖人才，拥有丰富的行业经验和深厚的技术积累
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="bg-green-100 dark:bg-green-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-green-600 dark:text-green-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">安全可靠</h3>
+              <p className="text-gray-600 dark:text-gray-400">
+                严格的数据安全保障，符合国家标准的隐私保护措施，让您使用无忧
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">准备开启AI数字化转型之旅？</h2>
+          <p className="text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-3xl mx-auto">
+            华飞科技为您提供一站式AI解决方案，助力企业实现数字化转型升级
+          </p>
+          <a href="/contact" className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-lg transition-colors">
+            联系我们，获取专属方案
+          </a>
+        </div>
+
+        {/* 原有的标签和文章列表代码（已注释） */}
+        {/* <TagList tags={allTags} withCount asLink className="mb-20 mt-10" /> */}
+        {/* {!tagsFilter.length && <Newsletter />} */}
+        {/* {<BlogCardList articles={articles} />} */}
+      </div>
+    </>
+  )
+}
