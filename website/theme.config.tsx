@@ -26,7 +26,7 @@ export default defineConfig({
     dark: '15,17,20',
     light: '250,250,250',
   },
-  docsRepositoryBase: 'https://github.com/AInoah1900/website-huafei',
+  docsRepositoryBase: 'https://github.com/AInoah1900/ai-huafeiwebsite',
 
   // 自定义 head 标签
   head: function useHead() {

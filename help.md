@@ -5,6 +5,7 @@
 ## 准备工作
 
 ### 1. 服务器准备
+
 - 确保您已购买并配置好Ubuntu 24.04 LTS服务器实例
 - 确保已开通以下端口：
   - 22端口 (SSH)
@@ -12,12 +13,14 @@
   - 443端口 (HTTPS，如需配置SSL)
 
 ### 2. 域名准备
+
 - 如果您有自定义域名，请确保已完成域名备案
 - 在DNS控制台将域名解析到您的服务器IP
 
 ## 部署方式选择
 
 本文档提供两种部署方式：
+
 1. **传统部署方式**：直接在服务器上安装Node.js和相关软件
 2. **Docker部署方式**：使用Docker容器化部署（推荐，可避免系统兼容性问题）
 
@@ -80,7 +83,7 @@ cd /var/www/huafei
 
 
 # 方法1：使用SSH方式克隆代码（需要先配置SSH密钥）
- git clone git@github.com:AInoah1900/website-huafei.git .
+ git clone git@github.com:AInoah1900/ai-huafeiwebsite.git .
 
 # 或者从本地上传代码到服务器
 ```
@@ -170,7 +173,7 @@ server {
     server_name  https://jiujuaner.com;
 
     index index.html index.htm;
-    
+  
     location / {
         proxy_pass http://localhost:3000;
         proxy_http_version 1.1;
@@ -181,7 +184,7 @@ server {
         proxy_set_header X-Real-IP \$remote_addr;
         proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
     }
-    
+  
     # 静态资源缓存设置
     location /_next/static/ {
         proxy_pass http://localhost:3000/_next/static/;
@@ -189,7 +192,7 @@ server {
         proxy_set_header Host \$host;
         add_header Cache-Control "public, max-age=3600";
     }
-    
+  
     location /static/ {
         proxy_pass http://localhost:3000/static/;
         proxy_cache_valid 60m;
@@ -300,7 +303,7 @@ sudo chown -R $USER:$USER /var/www/huafei
 cd /var/www/huafei
 
 # 克隆代码（使用HTTPS方式）
-git clone https://github.com/AInoah1900/website-huafei.git .
+git clone https://github.com/AInoah1900/ai-huafeiwebsite.git .
 ```
 
 ### 步骤四：创建Dockerfile
@@ -595,6 +598,7 @@ docker compose logs -f nginx
   - `lib/`: 工具函数和库
 
 项目使用了以下技术栈：
+
 - **框架**: Next.js
 - **样式**: Tailwind CSS, Stitches
 - **包管理**: pnpm
@@ -603,26 +607,27 @@ docker compose logs -f nginx
 ## 常见问题排查
 
 1. **Node.js版本问题**：
+
    - 项目要求Node.js 18或更高版本
    - 如果遇到兼容性问题，建议使用Docker部署方式
-
 2. **pnpm相关问题**：
+
    - 如果pnpm安装依赖失败，尝试清除缓存：`pnpm store prune`
    - 检查Node.js版本兼容性：`node -v`
-
 3. **网站无法访问**：
+
    - 传统部署：检查PM2进程是否运行：`pm2 status`
    - Docker部署：检查容器是否运行：`docker compose ps`
-   - 检查Nginx是否运行：`sudo systemctl status nginx`或`docker compose logs nginx`
+   - 检查Nginx是否运行：`sudo systemctl status nginx`或 `docker compose logs nginx`
    - 检查防火墙设置：`sudo ufw status`
-
 4. **性能问题**：
+
    - 检查服务器负载：`top`
    - 检查内存使用：`free -m`
    - 检查磁盘I/O：`iostat -x 1`（需安装sysstat：`sudo apt install sysstat`）
-
 5. **博客系统更新**：
-   - 新博客文章应放在`website/pages/blog`目录
-   - 相关资源应放在`website/public/blog-assets`目录
+
+   - 新博客文章应放在 `website/pages/blog`目录
+   - 相关资源应放在 `website/public/blog-assets`目录
 
 如果您需要更多帮助或遇到特定问题，请随时联系我们的技术支持团队。

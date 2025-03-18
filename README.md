@@ -1,4 +1,4 @@
-# 华飞网站项目
+# 华飞科技网站项目
 
 这个项目是华飞网站的源代码，基于The Guild网站的架构进行开发。项目使用Next.js作为主要框架，结合了现代化的UI组件库。
 
@@ -111,7 +111,7 @@ tags: ['privacy', '其他标签']
 
 ## UI组件库
 
-项目包含一套完整的UI组件库，位于`website/ui/components/`目录下。这些组件包括：
+项目包含一套完整的UI组件库，位于 `website/ui/components/`目录下。这些组件包括：
 
 ### 基础组件
 
@@ -164,7 +164,7 @@ pnpm export
 
 ## 博客系统
 
-项目包含一个基于MDX的博客系统。博客文章存放在`website/pages/blog`目录中。博客系统使用`gray-matter`解析MDX文件的前置元数据，使用`zod`进行数据验证。
+项目包含一个基于MDX的博客系统。博客文章存放在 `website/pages/blog`目录中。博客系统使用 `gray-matter`解析MDX文件的前置元数据，使用 `zod`进行数据验证。
 
 ### 博客系统依赖
 
@@ -190,10 +190,10 @@ tags: ['标签1', '标签2'] # 可选
 
 ### 添加新博客文章
 
-1. 在`website/pages/blog`创建新的MDX文件
+1. 在 `website/pages/blog`创建新的MDX文件
 2. 更新meta对象，包含标题、缩略图、作者等信息
-3. 相关资源放在`website/public/blog-assets`目录中
-4. 首次贡献需在`ui/authors.ts`文件中添加作者信息
+3. 相关资源放在 `website/public/blog-assets`目录中
+4. 首次贡献需在 `ui/authors.ts`文件中添加作者信息
 
 ### 博客API
 
