@@ -54,3 +54,15 @@ export const allBlogs = blogFolder
     };
   })
   .sort(sortByDateDesc);
+
+/**
+ * 获取所有博客文章中的标签
+ * @returns 所有标签的数组
+ */
+export function getAllTagsFromBlog() {
+  // 收集所有标签
+  const allTags = allBlogs.flatMap(blog => blog.tags || []);
+  // 去重
+  const uniqueTags = Array.from(new Set(allTags));
+  return uniqueTags;
+}

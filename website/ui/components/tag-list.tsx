@@ -48,19 +48,27 @@ export const TagList = ({
   className?: string;
 }): ReactElement => {
   const router = useRouter();
+  const currentTag = router.query.tag;
+  
   return (
     <div className={clsx('flex flex-wrap justify-center gap-2.5', className)} {...props}>
       {tags.map(tag => {
         const tagToDisplay = typeof tag === 'string' ? tag.replaceAll('-', ' ') : tag.title;
         const tagSlug = typeof tag === 'string' ? tag : tag.tag;
         const count = typeof tag === 'string' ? 0 : tag.count;
+        const isActive = Array.isArray(currentTag) 
+          ? currentTag.includes(tagSlug)
+          : tagSlug === currentTag;
+
+        // 创建带有标签查询参数的URL
+        const tagUrl = asLink ? `/blog?tag=${encodeURIComponent(tagSlug)}` : '';
 
         return (
           <Tag
             key={tagToDisplay}
-            href={asLink ? `/blog/tag/${tagSlug}` : ''}
-            title={`View other articles about ${tagToDisplay}`}
-            isActive={tagSlug === router.query.tag}
+            href={tagUrl}
+            title={`查看与${tagToDisplay}相关的文章`}
+            isActive={isActive}
           >
             {withCount && count > 0 ? `${tagToDisplay} (${count})` : tagToDisplay}
           </Tag>
