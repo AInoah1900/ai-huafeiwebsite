@@ -243,7 +243,7 @@ importers:
         version: 1.2.8(react@18.3.1)
       '@theguild/components':
         specifier: github:AInoah1900/components
-        version: https://codeload.github.com/AInoah1900/components/tar.gz/b73199d6690d1e0d82e552250c438938ebbcd53a(@types/react@18.3.18)(acorn@8.14.0)(next@14.2.5(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.7.3)(webpack@4.47.0)
+        version: https://codeload.github.com/AInoah1900/components/tar.gz/75b65cd3afbc76df82ce2bba47c0ee7ec823ede9(@types/react@18.3.18)(acorn@8.14.0)(next@14.2.5(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.7.3)(webpack@4.47.0)
       clsx:
         specifier: 2.1.1
         version: 2.1.1
@@ -1617,8 +1617,8 @@ packages:
   '@tanstack/virtual-core@3.11.2':
     resolution: {integrity: sha512-vTtpNt7mKCiZ1pwU9hfKPhpdVO2sVzFQsxoVBGtOSHxlrRRzYr8iQ2TlwbAcRYCcEiZ9ECAM8kBzH0v2+VzfKw==}
 
-  '@theguild/components@https://codeload.github.com/AInoah1900/components/tar.gz/b73199d6690d1e0d82e552250c438938ebbcd53a':
-    resolution: {tarball: https://codeload.github.com/AInoah1900/components/tar.gz/b73199d6690d1e0d82e552250c438938ebbcd53a}
+  '@theguild/components@https://codeload.github.com/AInoah1900/components/tar.gz/75b65cd3afbc76df82ce2bba47c0ee7ec823ede9':
+    resolution: {tarball: https://codeload.github.com/AInoah1900/components/tar.gz/75b65cd3afbc76df82ce2bba47c0ee7ec823ede9}
     version: 6.6.4
     peerDependencies:
       next: ^13 || ^14
@@ -8040,7 +8040,7 @@ snapshots:
 
   '@tanstack/virtual-core@3.11.2': {}
 
-  '@theguild/components@https://codeload.github.com/AInoah1900/components/tar.gz/b73199d6690d1e0d82e552250c438938ebbcd53a(@types/react@18.3.18)(acorn@8.14.0)(next@14.2.5(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.7.3)(webpack@4.47.0)':
+  '@theguild/components@https://codeload.github.com/AInoah1900/components/tar.gz/75b65cd3afbc76df82ce2bba47c0ee7ec823ede9(@types/react@18.3.18)(acorn@8.14.0)(next@14.2.5(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.7.3)(webpack@4.47.0)':
     dependencies:
       '@giscus/react': 3.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@next/bundle-analyzer': 14.2.5
